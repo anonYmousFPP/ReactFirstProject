@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import Movie from "./Components/movie"
+import "./Components/style.css";
+import movies from "./Components/data.json"
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <div className="mainContainer"> Movie Review</div>
+      <div className="movieContainer">
+      {
+        movies.map((elements) => {
+          return(
+          <Movie  
+            img={elements.Poster}
+            title={elements.Title}
+            year={elements.Year}
+          />
+          )
+        })
+      }
+      </div>
+    </>
+  )
 }
 
 export default App;
